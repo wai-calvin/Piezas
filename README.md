@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/wai-calvin/Piezas.svg?branch=master)](https://travis-ci.org/wai-calvin/Piezas)
+
+[![Coverage Status](https://coveralls.io/repos/github/wai-calvin/Piezas/badge.svg?branch=master)](https://coveralls.io/github/wai-calvin/Piezas?branch=master)
+
 # Piezas
 
 ## Associated Enumerated Types
