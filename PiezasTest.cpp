@@ -19,8 +19,7 @@ TEST(PiezasTest, sanityCheck)
 	ASSERT_TRUE(true);
 }
 
-TEST(PiezasTest, resetTest)
-{
+TEST(PiezasTest, resetTest) {
 	Piezas tBoard;
 	for(int i=0; i<BOARD_ROWS; i++){
     	for(int j=0; j<BOARD_COLS; j++){
@@ -34,44 +33,40 @@ TEST(PiezasTest, resetTest)
     	}
 	}
 }
-TEST(PiezasTest, oobDropPieceTest)
-{
+
+TEST(PiezasTest, oobDropPieceTest) {
 	Piezas tBoard;
 	ASSERT_TRUE(tBoard.dropPiece(-1) == Invalid);
 	ASSERT_TRUE(tBoard.dropPiece(BOARD_COLS) == Invalid);
 }
 
-TEST(PiezasTest, dropPieceandTurnSwapTest)
-{
+TEST(PiezasTest, dropPieceandTurnSwapTest) {
 	Piezas tBoard;
 	tBoard.dropPiece(0);
 	ASSERT_TRUE(tBoard.dropPiece(0) == O);
 }
 
-TEST(PiezasTest, oobPieceAtTest)
-{
+TEST(PiezasTest, oobPieceAtTest) {
 	Piezas tBoard;
 	ASSERT_TRUE(tBoard.pieceAt(-1,0) == Invalid);
 	ASSERT_TRUE(tBoard.pieceAt(BOARD_ROWS,0) == Invalid);
 	ASSERT_TRUE(tBoard.pieceAt(0,-1) == Invalid);
 	ASSERT_TRUE(tBoard.pieceAt(0,BOARD_COLS) == Invalid);
 }
-TEST(PiezasTest, pieceAtTest)
-{
+
+TEST(PiezasTest, pieceAtTest) {
 	Piezas tBoard;
 	tBoard.dropPiece(0);
 	ASSERT_TRUE(tBoard.pieceAt(0,0) == X);
 	ASSERT_TRUE(tBoard.pieceAt(1,0) == Blank);
 }
 
-TEST(PiezasTest, gameStateUnfinishedTest)
-{
+TEST(PiezasTest, gameStateUnfinishedTest) {
 	Piezas tBoard;
 	ASSERT_TRUE(tBoard.gameState() == Invalid);
 }
 
-TEST(PiezasTest, gameStateTieTest)
-{
+TEST(PiezasTest, gameStateTieTest) {
 	Piezas tBoard;
 	for(int i=0; i<BOARD_ROWS; i++){
     	for(int j=0; j<BOARD_COLS; j++){
@@ -81,8 +76,7 @@ TEST(PiezasTest, gameStateTieTest)
 	ASSERT_TRUE(tBoard.gameState() == Blank);
 }
 
-TEST(PiezasTest, gameStateVertWinTest)
-{
+TEST(PiezasTest, gameStateVertWinTest) {
 	Piezas tBoard;
 	for(int i=0; i<BOARD_ROWS; i++){
 		tBoard.dropPiece(0);
@@ -96,8 +90,7 @@ TEST(PiezasTest, gameStateVertWinTest)
 	ASSERT_TRUE(tBoard.gameState() == X);
 }
 
-TEST(PiezasTest, gameStateHorizWinTest)
-{
+TEST(PiezasTest, gameStateHorizWinTest) {
 	Piezas tBoard;
 	for(int i=0; i<BOARD_COLS; i++){
 		tBoard.dropPiece(i);
