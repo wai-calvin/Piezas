@@ -94,11 +94,11 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
-  int xTallyMax = 0;
-  int oTallyMax = 0;
+  int xCount = 0;
+  int oCount = 0;
 
   Piece previousSpace;
-  int currTally = 0;
+  int currCount = 0;
 
   for(int i=0; i<BOARD_COLS; i++) {
     previousSpace = Blank;
@@ -108,21 +108,21 @@ Piece Piezas::gameState()
       }
 
       if(board[j][i] == previousSpace) {
-        currTally++;
+        currCount++;
         if(board[j][i] == X) {
-          if(currTally > xTallyMax) {
-            xTallyMax = currTally;
+          if(currCount > xCount) {
+            xCount = currCount;
           }
         }
 
         if(board[j][i] == O) {
-          if(currTally > oTallyMax) {
-            oTallyMax = currTally;
+          if(currCount > oCount) {
+            oCount = currCount;
           }
         }
       }
       else {
-        currTally=0;
+        currCount=0;
       }
       previousSpace = board[j][i];
    }
@@ -135,31 +135,31 @@ for(int i=0; i<BOARD_ROWS; i++) {
       return Invalid;
     }
     if(board[i][j] == previousSpace) {
-      currTally++;
+      currCount++;
       if(board[i][j] == X) {
-        if(currTally > xTallyMax) {
-          xTallyMax = currTally;
+        if(currCount > xCount) {
+          xCount = currCount;
         }
       }
 
       if(board[i][j] == O) {
-        if(currTally > oTallyMax) {
-          oTallyMax = currTally;
+        if(currCount > oCount) {
+          oCount = currCount;
         }
       }
     }
     else {
-      currTally=0;
+      currCount=0;
     }
     previousSpace = board[i][j];
    }
  }
 
-  if(xTallyMax == oTallyMax) {
+  if(xCount == oCount) {
      return Blank;
   }
 
-  if(xTallyMax > oTallyMax) {
+  if(xCount > oCount) {
      return X;
   }
 
